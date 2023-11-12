@@ -7,26 +7,46 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <main>
-      <!-- heading and search input -->
-      <div class="head">
-        <h1>Meals App</h1>
-        <input
-          id="mealsearch"
-          type="text"
-          placeholder="Search your meals here..."
-        />
-      </div>
-
-      <!-- meals list container-->
-      <div id="meals-ctr" class="meals-ctr"></div>
-
-      <!-- show details of the selected meal -->
-      <div id="meal-details" class="meal-details"></div>
-    </main>
+    <!-- navbar -->
+    <nav>
+      <h3><a href="#">Meals App</a></h3>
+      <h3 id="nav-menu" class="nav-menu">Favourites</h3>
+    </nav>
 
     <!-- sidebar favorites area-->
-    <div id="favs-area" class="favs-area"></div>
+    <div id="favs-ctr" class="favs-ctr">
+      <div class="favs-ctr-header">
+        <h3>Favourites</h3>
+        <img
+          id="close-sidebar"
+          class="close-sidebar"
+          src="./svg/close-sidebar.svg"
+          alt="close sidebar"
+        />
+      </div>
+      <div id="favs-area" class="favs-area"></div>
+    </div>
+
+    <!-- heading and search input -->
+    <div class="head">
+      <h1>Welcome to Meals App</h1>
+      <input
+        id="mealsearch"
+        type="text"
+        placeholder="Search for meals here..."
+      />
+    </div>
+
+    <main>
+      <!-- meals area -->
+      <div class="meals-area">
+        <!-- meals list container-->
+        <div id="meals-ctr" class="meals-ctr"></div>
+
+        <!-- show details of the selected meal -->
+        <div id="meal-details" class="meal-details"></div>
+      </div>
+    </main>
 
     <!-- Custom JS -->
     <script src="index.js"></script>

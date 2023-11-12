@@ -3,7 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const mealSearchInput = document.getElementById("mealsearch");
   const mealsContainer = document.getElementById("meals-ctr");
   const mealDetails = document.getElementById("meal-details");
+  const favsContainer = document.getElementById("favs-ctr");
   const favsArea = document.getElementById("favs-area");
+  const navMenu = document.getElementById("nav-menu");
+  const sidebarClose = document.getElementById("close-sidebar");
+
+  // sidebar toggling
+  navMenu.addEventListener("click", () => {
+    favsContainer.classList.toggle("show");
+    document.body.style.overflow = "hidden";
+  });
+
+  sidebarClose.addEventListener("click", () => {
+    favsContainer.classList.toggle("show");
+    document.body.style.overflow = "auto";
+  });
 
   // get favourites list from the local storage and update the favourite list
   let favorites = JSON.parse(localStorage.getItem("favouritesList")) || [];
@@ -36,13 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
       newMealCard.innerHTML = `
           <img class="meal-card-img" src=${meal.strMealThumb} alt="tasty meal thumbnail" />
           <div class="meal-card-text">
-            <h4>Name: ${meal.strMeal}</h4>
-            <h4>Category: ${meal.strCategory}</h4>
-            <h4>Type: ${meal.strArea}</h4>
+            <h4>${meal.strMeal}</h4>
+            <p>Category: ${meal.strCategory}</p>
+            <p>Type: ${meal.strArea}</p>
           </div>
           <div class="meal-card-btns">
             <button class="details-btn">Details</button>
-            <button class="fav-btn">Fav ❤️</button>
+            <button class="fav-btn">Fav</button>
           </div>
       `;
 
@@ -96,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       newMealCard.classList.add("meal-card");
       newMealCard.innerHTML = `
         <img class="meal-card-img" src=${fav.strMealThumb} alt="tasty meal" />
-        <h4>Name: ${fav.strMeal}</h4>
+        <h4>${fav.strMeal}</h4>
         <button class="remove-fav-btn">Remove</button>
       `;
 
